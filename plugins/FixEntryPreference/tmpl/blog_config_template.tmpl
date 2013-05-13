@@ -1,0 +1,72 @@
+<mtapp:setting
+    id="fix_entry_preference_enable"
+    label="<__trans phrase="FixEntryPreferenceEnable:">"
+    >
+    <input
+        type="checkbox"
+        name="fix_entry_preference_enable"
+        id="fix_entry_preference_enable"
+        value="1"
+        <mt:if name="fix_entry_preference_enable" >
+            checked="checked"
+        </mt:if>
+        class="cb"
+    />
+</mtapp:setting>
+
+<mtapp:setting
+    id="fix_entry_preference_admin_config_for_entry"
+    label="<__trans phrase="fix_admin_config_for_entry:">"
+    >
+    <input
+        type="text"
+        name="fix_entry_preference_admin_config_for_entry"
+        id="fix_entry_preference_admin_config_for_entry"
+        <mt:if name="fix_entry_preference_admin_config_for_entry" >
+            value="<mt:var name="fix_entry_preference_admin_config_for_entry" escape="html">"
+        </mt:if>
+    />
+</mtapp:setting>
+
+<mtapp:setting
+    id="fix_entry_preference_user_config_for_entry"
+    label="<__trans phrase="fix_user_config_for_entry:">"
+    >
+    <input
+        type="text"
+        name="fix_entry_preference_user_config_for_entry"
+        id="fix_entry_preference_user_config_for_entry"
+        <mt:if name="fix_entry_preference_user_config_for_entry" >
+            value="<mt:var name="fix_entry_preference_user_config_for_entry" escape="html">"
+        </mt:if>
+    />
+</mtapp:setting>
+
+<mtapp:setting
+    id="fix_entry_preference_admin_config_for_page"
+    label="<__trans phrase="fix_admin_config_for_page:">"
+    >
+    <input
+        type="text"
+        name="fix_entry_preference_admin_config_for_page"
+        id="fix_entry_preference_admin_config_for_page"
+        <mt:if name="fix_entry_preference_admin_config_for_page" >
+            value="<mt:var name="fix_entry_preference_admin_config_for_page" escape="html">"
+        </mt:if>
+    />
+</mtapp:setting>
+
+<mtapp:setting
+    id="fix_entry_preference_user_config_for_page"
+    label="<__trans phrase="fix_user_config_for_page:">"
+    >
+    <input
+        type="text"
+        name="fix_entry_preference_user_config_for_page"
+        id="fix_entry_preference_user_config_for_page"
+        <mt:if name="fix_entry_preference_user_config_for_page" >
+            value="<mt:var name="fix_entry_preference_user_config_for_page" escape="html">"
+        </mt:if>
+    />
+</mtapp:setting>
+

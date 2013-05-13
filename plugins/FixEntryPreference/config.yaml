@@ -1,0 +1,25 @@
+id: fixentrypreference
+key: MT::Plugin::FixEntryPreference
+name: FixEntryPreference
+version: 0.34
+description: <MT_TRANS phrase='description of FixEntryPreference'>
+author_name: Alliance Port, LLC.
+author_link: http://www.allianceport.jp/
+l10n_class: FixEntryPreference::L10N
+blog_config_template: blog_config_template.tmpl
+settings:
+    fix_entry_preference_enable:
+        default: 0
+    fix_entry_preference_admin_config_for_entry:
+        default: excerpt,tags,keywords,category,feedback,assets
+    fix_entry_preference_user_config_for_entry:
+        default: excerpt,tags,keywords,category,feedback,assets
+    fix_entry_preference_admin_config_for_page:
+        default: excerpt,tags,keywords,folder,feedback,assets
+    fix_entry_preference_user_config_for_page:
+        default: excerpt,tags,keywords,folder,feedback,assets
+callbacks:
+    #----- Transformer
+    MT::App::CMS::template_source.edit_entry: $FixEntryPreference::FixEntryPreference::Plugin::hdlr_edit_entry_source
+    MT::App::CMS::template_param.edit_entry: $FixEntryPreference::FixEntryPreference::Plugin::hdlr_edit_entry_param
+    MT::Permission::post_save: $FixEntryPreference::FixEntryPreference::Plugin::hdr_permission_post_save
