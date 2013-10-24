@@ -45,8 +45,7 @@ sub fix_permission {
     my $author_is_admin = $app->user->is_superuser ? $app->user->is_superuser : 0;
 
     use MT::Permission;
-    my $permission  = MT::Permission->load( { blog_id   => $blog_id,
-                                                    author_id => $app->user->id },
+    my $permission  = MT::Permission->load( { blog_id   => $blog_id, author_id => $app->user->id },
                                                   { limit     => 1 } );
 
     #もしAdminではないならば、対象のBlogのアドミンのアカウントのIDを取得する。
@@ -86,6 +85,13 @@ sub hdlr_edit_entry_param {
 
 sub hdlr_edit_entry_source {
     my ($cb, $app, $tmpl_ref) = @_;
+
+    my $instance = MT->instance();
+    my $blog_id  = $instance->param('blog_id');
+    my $plugin_params = fix_entry_preference_pref($blog_id);
+
+    return unless $$plugin_params{fix_entry_preference_enable};
+
 
     fix_permission($app);
 
